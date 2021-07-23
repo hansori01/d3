@@ -4,6 +4,10 @@ var height = 400,
     barWidth = 50,
     barOffset = 5;
 
+const yScale = d3.scaleLinear()
+                .domain([0, d3.max(bardata)])
+                .range([0, height])
+
 d3.select('#viz').append('svg')
   .attr('width', width)
   .attr('height', height)
