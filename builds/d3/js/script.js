@@ -5,7 +5,8 @@ var bardata = [];
 var height = 400,
     width = 600,
     barWidth = 50,
-    barOffset = 5;
+    barOffset = 5,
+    tempColor;
 
 var yScale = d3.scaleLinear()
     .domain([0, d3.max(bardata)])
@@ -44,4 +45,17 @@ d3.select('#viz').append('svg')
     })
     .attr('y', function(d) {
       return height - yScale(d);
-    });
+    })
+
+    .on('mouseover', function(d) {
+      tempColor = this.style.fill;
+      d3.select(this)
+      .style('opacity', .5)
+      .style('fill', 'yellow');
+    })
+
+    .on('mouseout', function(d) {
+      d3.select(this)
+      .style('opacity', 1)
+      .style('fill', tempColor);
+    })
