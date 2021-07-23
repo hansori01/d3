@@ -53,10 +53,10 @@ d3.select('#viz').append('svg')
     
     .on('mouseover', function(d) {
 
-      tooltip.transition().duration(200)
+      tooltip.transition().duration(500)
         .style('opacity', .9)
-        
-      tooltip.html(d)
+
+      tooltip.html(d + ' value')
         .style('left', (d3.event.pageX - 35) + 'px')
         .style('top', (d3.event.pageY - 30) + 'px')
 
